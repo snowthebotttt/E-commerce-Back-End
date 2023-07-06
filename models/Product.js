@@ -3,6 +3,7 @@ const sequelize = require("../config/connection");
 
 const Category = require("./Category");
 const Tag = require("./Tag");
+const ProductTag = require("./ProductTag");
 
 class Product extends Model {}
 
@@ -49,6 +50,8 @@ Product.init(
     modelName: "product",
   }
 );
+
+Product.belongsTo(Category, { foreignKey: "category_id" });
 
 Product.belongsToMany(Tag, {
   through: ProductTag,

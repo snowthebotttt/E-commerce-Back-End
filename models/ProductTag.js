@@ -41,11 +41,13 @@ ProductTag.init(
 Product.belongsToMany(Tag, {
   through: ProductTag,
   foreignKey: "product_id",
+  as: "tags",
 });
 
 Tag.belongsToMany(Product, {
   through: ProductTag,
   foreignKey: "tag_id",
+  as: "products",
 });
 
 module.exports = ProductTag;
